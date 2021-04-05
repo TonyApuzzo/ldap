@@ -1,0 +1,63 @@
+version: 1
+
+## version not strictly necessary (and some implementations reject it) but generally good practice
+
+## DEFINE DIT ROOT/BASE/SUFFIX ####
+## uses RFC 2377 (domain name) format
+
+## dcObject is an AUXILIARY objectclass and MUST
+## have a STRUCTURAL objectclass (organization in this case)
+# this is an ENTRY sequence and is preceded by a BLANK line
+
+dn: dc=example,dc=org
+dc: example
+description: The best company in the whole world
+objectClass: dcObject
+objectClass: organization
+objectClass: top
+o: Example, Inc.
+
+## FIRST Level hierarchy - people 
+# this is an ENTRY sequence and is preceded by a BLANK line
+
+dn: ou=people,dc=example,dc=org
+ou: people
+description: All people in organisation
+objectClass: top
+objectClass: organizationalUnit
+
+## SECOND Level hierarchy - people entries 
+# this is an ENTRY sequence and is preceded by a BLANK line
+
+dn: cn=Robert Smith,ou=people,dc=example,dc=org
+objectclass: inetOrgPerson
+cn: Robert Smith
+sn: Smith
+uid: rsmith
+mail: robert@example.org
+mail: r.smith@example.org
+ou: sales
+
+## SECOND Level hierarchy - people entries 
+# this is an ENTRY sequence and is preceded by a BLANK line
+
+dn: cn=Bill Smith,ou=people,dc=example,dc=org
+objectclass: inetOrgPerson
+cn: Bill Smith
+sn: Smith
+uid: bsmith
+mail: bill@example.org
+mail: b.smith@example.org
+ou: support
+
+## SECOND Level hierarchy - people entries 
+# this is an ENTRY sequence and is preceded by a BLANK line
+
+dn: cn=John Smith,ou=people,dc=example,dc=org
+objectclass: inetOrgPerson
+cn: John Smith
+sn: smith
+uid: jsmith
+mail: jim@example.org
+mail: j.smith@example.org
+ou: accounting
